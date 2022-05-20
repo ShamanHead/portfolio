@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=BhuTuka+Expanded+One&family=Major+Mono+Display&family=Poiret+One&family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="js/toastr/build/toastr.css">
+    <meta charset="utf-8">
+    <title>smhd</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="wrapper">
+    <div class="wrapper__mobile-menu" id="real_mobile_menu">
+      <a href="/" class="mobile-menu__href">Лента</a>
+      <a href="/archive.html" class="mobile-menu__href">Архив</a>
+      <a href="/blog.html" class="mobile-menu__href">Блог</a>
+      <a href="/contact.html" class="mobile-menu__href">Контакты</a>
+    </div>
+    <div class="wrapper__real" id="wrapper_real">
+      <header class="wrapper__main__header">
+        <div class="header__header-content">
+          <input type="checkbox" id="mobile_button" class="menu-checkbox" hidden>
+          <div class="menu-button" hidden></div>
+          <a href="/" class="header-content__href">Лента</a>
+          <a href="/archive.html" class="header-content__href">Архив</a>
+          <a href="/" class="header__header-content__name">SMHD</a>
+          <a href="./blog.html" class="header-content__href">Блог</a>
+          <a href="./contact.html" class="header-content__href">Контакты</a>
+        </div>
+      </header>
+      <div class="wrapper__content">
+        <div class="wrapper__content__column-page">
+          <div class="wrapper__content__column-page__info">
+            <span class="wrapper__content__column-page__name">
+              Контакты
+            </span>
+            <span class="wrapper__content__column-page__description">
+              Вы всегда можете написать мне прямо на почту - <a href="mailto:ronyplay247@gmail.com">ronyplay247@gmail.com</a>, либо воспользоваться формой ниже !
+            </span>
+          </div>
+          <form action="" class="wrapper__content-contact">
+            <input id="contact-name" type="text" placeholder="Имя">
+            <input id="contact-mail" type="text" placeholder="Почта">
+            <textarea id="contact-message" name="" id="" cols="30" rows="10" placeholder="Сообщение"></textarea>
+            <input id="contact-submit" type="submit">
+          </form>
+        </div>
+      </div>
+      <footer class="wrapper__main__footer">
+        Связаться со мной:
+        <div class="footer__social">
+          <a href="https://t.me/ShamanHead"><img src="./images/telegram-logo.svg" width=30 height=30 alt=""></a>
+          <a href="https://github.com/ShamanHead"><img src="./images/github-logo.svg" width=30 height=30 alt=""></a>
+          <a href="https://kwork.ru/user/shamanhead"><img src="./images/kwork-logo.png" width=30 height=30 alt=""></a>
+        </div>
+        <span style="margin-top:0.3%;">© 2017-2022 ShamanHead</span>
+        <a href="mailto:ronyplay247@gmail.com">ronyplay247@gmail.com</a>
+      </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/toastr/build/toastr.min.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+    function onContactFormSubmit(e) {
+      e.preventDefault();
+      let inputs = ['name', 'mail', 'message'], found = false;
+      inputs.map((el) => {
+        if(document.getElementById('contact-' + el).value === '') {
+          found = true;
+        }
+      })
+      if(found) {
+        toastr.warning("Заполните пожалуйста все поля!")
+      } else {
+        toastr.success("Данные отправлены успешно")
+        setTimeout(() => {window.location.href = "/"}, 2000)
+      }
+    }
+    document.getElementById("contact-submit").onclick = (e) => {
+      onContactFormSubmit(e)
+    }
+    </script>
+  </body>
+</html>

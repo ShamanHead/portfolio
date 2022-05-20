@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=BhuTuka+Expanded+One&family=Major+Mono+Display&family=Poiret+One&family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <meta charset="utf-8">
+    <title>smhd</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="wrapper">
+    <div class="wrapper__mobile-menu" id="real_mobile_menu">
+      <a href="/" class="mobile-menu__href">Лента</a>
+      <a href="/archive.html" class="mobile-menu__href">Архив</a>
+      <a href="/blog.html" class="mobile-menu__href">Блог</a>
+      <a href="/contact.html" class="mobile-menu__href">Контакты</a>
+    </div>
+    <div class="wrapper__real" id="wrapper_real">
+      <header class="wrapper__main__header">
+        <div class="header__header-content">
+          <input type="checkbox" id="mobile_button" class="menu-checkbox" hidden>
+          <div class="menu-button" hidden></div>
+          <a href="/" class="header-content__href">Лента</a>
+          <a href="/archive.html" class="header-content__href">Архив</a>
+          <a href="/" class="header__header-content__name">SMHD</a>
+          <a href="./blog.html" class="header-content__href">Блог</a>
+          <a href="./contact.html" class="header-content__href">Контакты</a>
+        </div>
+      </header>
+      <div class="wrapper__content">
+        <div class="wrapper__content__column-case">
+          <div class="case-name">
+
+          </div>
+          <div class="case-tags">
+
+          </div>
+          <br>
+          <div class="case-image">
+            <img src="" id="case-main-image">
+          </div>
+          <div class="case-info">
+            <div class="case-info__block">
+              <div class="case-info__block-name">
+                Задача :
+              </div>
+              <div class="case-info__block-description" id="case-task">
+
+              </div>
+            </div>
+            <div class="case-info__block">
+              <div class="case-info__block-name">
+                Требования :
+              </div>
+              <div class="case-info__block-description" id="case-requirements">
+
+              </div>
+            </div>
+            <div class="case-info__block">
+              <div class="case-info__block-name">
+                Реализация :
+              </div>
+              <div class="case-info__block-description" id="case-realization">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="wrapper__main__footer">
+        Связаться со мной:
+        <div class="footer__social">
+          <a href="https://t.me/ShamanHead"><img src="./images/telegram-logo.svg" width=30 height=30 alt=""></a>
+          <a href="https://github.com/ShamanHead"><img src="./images/github-logo.svg" width=30 height=30 alt=""></a>
+          <a href="https://kwork.ru/user/shamanhead"><img src="./images/kwork-logo.png" width=30 height=30 alt=""></a>
+        </div>
+        <span style="margin-top:0.3%;">© 2017-2022 ShamanHead</span>
+        <a href="mailto:ronyplay247@gmail.com">ronyplay247@gmail.com</a>
+      </footer>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/index.js"></script>
+
+    <script>
+      let url = new URL(window.location.href),
+          currentElement = cases[parseInt(url.searchParams.get("item"))];
+
+      let currentName = currentElement.getElementsByTagName("name")[0].innerHTML,
+          currentTask = currentElement.getElementsByTagName("task")[0].innerHTML,
+          currentRequirements = currentElement.getElementsByTagName("requirements")[0].innerHTML;
+          currentRealization = currentElement.getElementsByTagName("realization")[0].innerHTML,
+          currentImage = currentElement.getElementsByTagName("image")[0].innerHTML,
+          currentTechnologies = [].slice.call(currentElement.getElementsByTagName("technologies")[0].getElementsByTagName("element"))
+                                        .map((element) => { return `<div class="case-tags__tag">` + element.innerHTML + `</div>` })
+                                        .reduce((el1, el2) => el1 + el2, '');
+
+
+      $(".case-name")[0].innerHTML = currentName;
+      $("#case-main-image").attr("src", currentImage);
+      $('.case-tags')[0].innerHTML = currentTechnologies;
+
+      $('#case-task')[0].innerHTML = currentTask;
+      $('#case-requirements')[0].innerHTML = currentRequirements;
+      $('#case-realization')[0].innerHTML = currentRealization;
+
+
+    </script>
+
+  </body>
+</html>

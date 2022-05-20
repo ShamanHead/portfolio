@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=BhuTuka+Expanded+One&family=Major+Mono+Display&family=Poiret+One&family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <meta charset="utf-8">
+    <title>smhd</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="wrapper">
+    <div class="wrapper__mobile-menu" id="real_mobile_menu">
+      <a href="/" class="mobile-menu__href">Лента</a>
+      <a href="/archive.html" class="mobile-menu__href">Архив</a>
+      <a href="/blog.html" class="mobile-menu__href">Блог</a>
+      <a href="/contact.html" class="mobile-menu__href">Контакты</a>
+    </div>
+    <div class="wrapper__real" id="wrapper_real">
+      <header class="wrapper__main__header">
+        <div class="header__header-content">
+          <input type="checkbox" id="mobile_button" class="menu-checkbox" hidden>
+          <div class="menu-button" hidden></div>
+          <a href="/" class="header-content__href">Лента</a>
+          <a href="/archive.html" class="header-content__href">Архив</a>
+          <a href="/" class="header__header-content__name">SMHD</a>
+          <a href="./blog.html" class="header-content__href">Блог</a>
+          <a href="./contact.html" class="header-content__href">Контакты</a>
+        </div>
+      </header>
+      <div class="wrapper__preview next" onscroll="alert('da')">
+        <div class="wrapper__preview-content" onscroll="alert('da')">
+          <span class="wrapper__preview-content__text" onscroll="alert('da')">
+            <span class="text__background" id="hello-text">Йо!</span>👋</br>Меня зовут Арсений, и я <span class="text__color">делаю</span> сайты!👾
+            </br></br>
+            <div class="look-center">
+              Посмотри на проекты!</br>
+              ⬇️
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="wrapper__content">
+        <div class="wrapper__projects">
+        </div>
+      </div>
+      <div class="wrapper__preview">
+        <div class="wrapper__preview-content">
+          <span class="wrapper__preview-content__text">
+            <!-- <span class="text__background-crimson">Понравилось?</span>❤️</br> -->
+            Я <span class="text__color">сделал</span> множество разных <span class="text__background-rainbow">проектов</span>: от сайтов <span class="text__color">с новостями</span> до <span class="text__color-crimson">каталогов авто-деталей</span>. Вы можете написать мне по любой задаче, рассмотрю каждую!
+            </br></br>
+            <div class="look-center">
+              <a href="/contact.html">Написать</a>
+            </div>
+          </span>
+        </div>
+      </div>
+      <!-- <footer class="wrapper__main__footer">
+        Связаться со мной:
+        <div class="footer__social">
+          <a href="https://t.me/ShamanHead"><img src="./images/telegram-logo.svg" width=30 height=30 alt=""></a>
+          <a href="https://github.com/ShamanHead"><img src="./images/github-logo.svg" width=30 height=30 alt=""></a>
+          <a href="https://kwork.ru/user/shamanhead"><img src="./images/kwork-logo.png" width=30 height=30 alt=""></a>
+        </div>
+        <span style="margin-top:0.3%;">© 2017-2022 ShamanHead</span>
+        <a href="mailto:ronyplay247@gmail.com">ronyplay247@gmail.com</a>
+      </footer> -->
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/index.js"></script>
+     <script>
+        let pointer = document.getElementById("hello-text");
+
+        let caseWrapper = document.getElementsByClassName("wrapper__projects")[0];
+
+        cases.map((element, index) => {
+
+          let caseName = element.getElementsByTagName("name")[0].innerHTML,
+              caseDescription = element.getElementsByTagName("task")[0].innerHTML,
+              caseTags = [].slice.call(element.getElementsByTagName("technologies")[0].getElementsByTagName("element"))
+                           .map((element) => { return `<div class="case-tags__tag">` + element.innerHTML + `</div>` })
+                           .reduce((el1, el2) => el1 + el2, '');
+          caseWrapper.innerHTML += `
+            <div class="projects__case">
+              <div class="projects__case-animate"></div>
+              <div class="case__content">
+                <div class="case__name">
+                  ${caseName}
+                </div>
+                <div class="case-tags">
+                  ${caseTags}
+                </div>
+                <div class="case__description">
+                  ${caseDescription}
+                </div>
+                <div class="case__button" onclick="window.location = '/item.html?item=${index}'">
+                  Посмотреть
+                </div>
+              </div>
+            </div>`;
+        })
+     </script>
+  </body>
+</html>
